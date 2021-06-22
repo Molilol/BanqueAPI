@@ -28,14 +28,4 @@ public class OperationEntity {
     public OperationEntity() {
     }
 
-    public OperationEntity(String id, String operationType, String montant) {
-        this.id = id;
-        this.operationType = operationType;
-        this.montant = montant;
-    }
-
-    public OperationEntity(String operationType, String montant) {
-        this.operationType = operationType;
-        this.montant = montant;
-    }
 }

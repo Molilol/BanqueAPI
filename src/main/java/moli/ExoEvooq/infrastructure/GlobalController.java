@@ -43,11 +43,26 @@ public class GlobalController {
         return clientDTOList;
     }
 
-    @PostMapping(path = "/createClientNew")
+    @PostMapping(path = "/createClient")
     public void createClient(@RequestBody ClientDTO clientDTO) {
         ClientEntity clientEntity = wrapperDTOtoEntity.clientDTOtoClientEntity(clientDTO);
         clientService.addNewClient(clientEntity);
     }
+
+    @PutMapping(path = "/updateClient")
+    public void updateClient(@RequestBody ClientEntity clientEntity) {
+        clientRepoHibernate.save(clientEntity);
+    }
+
+    @DeleteMapping(path = "/deleteClient/{name}")
+    public void deleteClient(@PathVariable("name") String name) {
+        ClientEntity clientEntity = clientRepoHibernate.findByName(name).get();
+        clientRepoHibernate.delete(clientEntity);
+    }
+
+
+
+
 
 
 }

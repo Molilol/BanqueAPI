@@ -1,5 +1,6 @@
 package moli.ExoEvooq.infrastructure;
 
+import moli.ExoEvooq.domain.Client;
 import moli.ExoEvooq.infrastructure.persistance.ClientEntity;
 import org.springframework.data.repository.CrudRepository;
 
@@ -15,5 +16,6 @@ public interface ClientRepoHibernate extends CrudRepository<ClientEntity, String
     List<ClientEntity> findAll();
 
     ClientEntity save(ClientEntity clientEntity);
+
 
 }

@@ -29,12 +29,5 @@ public class ClientEntity {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "ClientEntity{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", accounts=" + accounts +
-                '}';
-    }
+
 }

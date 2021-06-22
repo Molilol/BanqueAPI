@@ -29,6 +29,8 @@ public class ClientService {
         }
     }
 
+
+
     public String totalAccount(AccountEntity accountEntity) {
         List<Operation> operations = new ArrayList<>();
         for (OperationEntity operationEntity : accountEntity.getOperations()) {

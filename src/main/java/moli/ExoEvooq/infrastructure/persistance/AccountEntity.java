@@ -36,7 +36,4 @@ public class AccountEntity {
         this.devise = devise;
     }
 
-    public AccountEntity(String devise) {
-        this.devise = devise;
-    }
 }
