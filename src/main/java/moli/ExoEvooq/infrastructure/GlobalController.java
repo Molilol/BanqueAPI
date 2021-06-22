@@ -1,10 +1,10 @@
 package moli.ExoEvooq.infrastructure;
 
 import moli.ExoEvooq.infrastructure.persistance.ClientEntity;
-import moli.ExoEvooq.wrapper.WrapperDTOtoEntity;
-import moli.ExoEvooq.wrapper.WrapperEntityToDTO;
 import moli.ExoEvooq.service.ClientService;
 import moli.ExoEvooq.vue.ClientDTO;
+import moli.ExoEvooq.wrapper.WrapperDTOtoEntity;
+import moli.ExoEvooq.wrapper.WrapperEntityToDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,8 +48,6 @@ public class GlobalController {
         ClientEntity clientEntity = wrapperDTOtoEntity.clientDTOtoClientEntity(clientDTO);
         clientService.addNewClient(clientEntity);
     }
-
-
 
 
 }

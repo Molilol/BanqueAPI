@@ -25,7 +25,6 @@ public class Client {
     }
 
 
-
     public Client(String id, String name, List<Account> accountList) {
         this.id = id;
         this.name = name;

@@ -1,14 +1,11 @@
 package moli.ExoEvooq.infrastructure.persistance;
 
 import lombok.Data;
-import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.boot.context.properties.ConstructorBinding;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "CLIENTS")

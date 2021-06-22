@@ -7,7 +7,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "ACCOUNTS")
@@ -21,12 +20,12 @@ public class AccountEntity {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name="client_id")
+    @JoinColumn(name = "client_id")
     private ClientEntity client;
 
     private String devise;
 
-    @OneToMany(mappedBy="account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private Set<OperationEntity> operations = new HashSet<>();
 
     public AccountEntity() {

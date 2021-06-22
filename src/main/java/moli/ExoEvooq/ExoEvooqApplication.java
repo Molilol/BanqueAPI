@@ -35,7 +35,7 @@ public class ExoEvooqApplication {
         return args -> {
 
 
-           ClientEntity clientJohn = new ClientEntity("John");
+            ClientEntity clientJohn = new ClientEntity("John");
             AccountEntity account = new AccountEntity(clientJohn, "Euros");
             OperationEntity operation = new OperationEntity();
             operation.setOperationType("DEPOSER");
@@ -56,8 +56,6 @@ public class ExoEvooqApplication {
 
             clientJohn.setAccounts(accountEntitySet);
             clientService.addNewClient(clientJohn);
-
-           // System.out.println(clientJohn.toString());
 
 
           /*  ClientEntity clientIvan = new ClientEntity("Ivan");

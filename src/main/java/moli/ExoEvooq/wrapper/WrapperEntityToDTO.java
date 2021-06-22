@@ -51,7 +51,6 @@ public class WrapperEntityToDTO {
         clientDTO.setAccountClient(accountDTOList);
 
 
-
         return clientDTO;
     }
 

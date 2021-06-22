@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "OPERATIONS")
@@ -20,7 +19,7 @@ public class OperationEntity {
 
     private String operationType;
 
-    @JoinColumn(name="account_id")
+    @JoinColumn(name = "account_id")
     @ManyToOne
     private AccountEntity account;
 

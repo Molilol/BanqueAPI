@@ -1,18 +1,12 @@
 package moli.ExoEvooq.service;
 
 import moli.ExoEvooq.domain.Account;
-import moli.ExoEvooq.domain.Client;
 import moli.ExoEvooq.domain.Montant;
 import moli.ExoEvooq.domain.Operation;
 import moli.ExoEvooq.infrastructure.ClientRepoHibernate;
 import moli.ExoEvooq.infrastructure.persistance.AccountEntity;
 import moli.ExoEvooq.infrastructure.persistance.ClientEntity;
 import moli.ExoEvooq.infrastructure.persistance.OperationEntity;
-import moli.ExoEvooq.wrapper.WrapperDTOtoEntity;
-import moli.ExoEvooq.vue.AccountDTO;
-import moli.ExoEvooq.vue.ClientDTO;
-import moli.ExoEvooq.vue.OperationDTO;
-import moli.ExoEvooq.wrapper.WrapperEntityToDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -27,10 +21,6 @@ public class ClientService {
 
     @Autowired
     ClientRepoHibernate clientRepoHibernate;
-    @Autowired
-    WrapperDTOtoEntity wrapperDTOtoEntity;
-    @Autowired
-    WrapperEntityToDomain wrapperEntityToDomain;
 
     public void addNewClient(ClientEntity client) {
         Optional<ClientEntity> clientByName = clientRepoHibernate.findByName(client.getName());
@@ -39,23 +29,22 @@ public class ClientService {
         }
     }
 
-    public  String totalAccount(AccountEntity accountEntity) {
-           List <Operation> operations = new ArrayList<>();
-            for (OperationEntity operationEntity : accountEntity.getOperations()) {
-                Montant montant = new Montant(
-                        Double.parseDouble(operationEntity.getMontant()),
-                        accountEntity.getDevise());
-                Operation operation = new Operation(
-                        Operation.OperationType.valueOf(operationEntity.getOperationType()),
-                        montant);
-                operations.add(operation);
-            }
-            Account account = new Account(
-                    accountEntity.getDevise(),
-                    operations);
-            Montant montantTotalPerAccount = account.getTotal();
-            String result = String.valueOf(montantTotalPerAccount.getMontant());
-        return result;
+    public String totalAccount(AccountEntity accountEntity) {
+        List<Operation> operations = new ArrayList<>();
+        for (OperationEntity operationEntity : accountEntity.getOperations()) {
+            Montant montant = new Montant(
+                    Double.parseDouble(operationEntity.getMontant()),
+                    accountEntity.getDevise());
+            Operation operation = new Operation(
+                    Operation.OperationType.valueOf(operationEntity.getOperationType()),
+                    montant);
+            operations.add(operation);
+        }
+        Account account = new Account(
+                accountEntity.getDevise(),
+                operations);
+        Montant montantTotalPerAccount = account.getTotal();
+        return String.valueOf(montantTotalPerAccount.getMontant());
     }
 
 }
